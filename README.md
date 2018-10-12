@@ -13,15 +13,17 @@ npm install --save react-media-body
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import MyComponent from 'react-media-body'
+import MediaBody from "react-media-body";
 
-class Example extends Component {
-  render () {
+export default class App extends Component {
+  render() {
     return (
-      <MyComponent />
-    )
+      <div>
+        <MediaBody>Some text with media links</MediaBody>
+      </div>
+    );
   }
 }
 ```
