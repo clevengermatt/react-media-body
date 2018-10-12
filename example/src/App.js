@@ -1,13 +1,13 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
-import ExampleComponent from 'react-media-body'
+import MediaBody from "react-media-body";
 
 export default class App extends Component {
-  render () {
+  render() {
     return (
       <div>
-        <ExampleComponent text='Modern React component module' />
+        <MediaBody>Some text with media links</MediaBody>
       </div>
-    )
+    );
   }
 }
