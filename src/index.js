@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ReactPlayer from "react-player";
 import Linkify from "react-linkify";
+import "./main.css";
 
 class MediaBody extends Component {
   // requires react-player
@@ -23,20 +24,30 @@ class MediaBody extends Component {
         const playerCanPlay = ReactPlayer.canPlay(section);
         if (playerCanPlay) {
           return (
-            <ReactPlayer key={i} width={this.props.mediaWidth} url={section} />
+            <div
+              key={i}
+              style={{
+                position: "relative",
+                paddingTop: "56.25%" /* Player ratio: 100 / (1280 / 720) */
+              }}
+            >
+              <ReactPlayer
+                url={section}
+                width="100%"
+                height="100%"
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0
+                }}
+              />
+            </div>
           );
         }
 
         // check if this section is an image link
         if (/(https?:\/\/.*\.(?:png|jpg|gif))/i.test(section)) {
-          return (
-            <img
-              key={i}
-              style={{ width: this.props.mediaWidth }}
-              alt=""
-              src={section}
-            />
-          );
+          return <img key={i} style={{ width: "100%" }} alt="" src={section} />;
         }
 
         return (
