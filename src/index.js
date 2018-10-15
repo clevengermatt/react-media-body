@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import ReactPlayer from "react-player";
 import Linkify from "react-linkify";
-import "./main.css";
 
 class MediaBody extends Component {
   // requires react-player
