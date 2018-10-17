@@ -31,6 +31,7 @@ class MediaBody extends Component {
               }}
             >
               <ReactPlayer
+                controls={true}
                 url={section}
                 width="100%"
                 height="100%"
@@ -47,6 +48,28 @@ class MediaBody extends Component {
         // check if this section is an image link
         if (/(https?:\/\/.*\.(?:png|jpg|gif))/i.test(section)) {
           return <img key={i} style={{ width: "100%" }} alt="" src={section} />;
+        }
+
+        if (i == 0 && this.props.initial === true) {
+          const firstLetter = section.charAt(0);
+          const p = section.substr(1, section.length);
+          return (
+            <p key={i}>
+              <span
+                style={{
+                  float: "left",
+                  fontSize: "75px",
+                  lineHeight: "60px",
+                  paddingTop: "4px",
+                  paddingRight: "8px",
+                  paddingLeft: "3px"
+                }}
+              >
+                {firstLetter}
+              </span>
+              {p}
+            </p>
+          );
         }
 
         return (
